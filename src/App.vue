@@ -1,6 +1,7 @@
 <template>
   <keep-alive>
-    <comp v-if="currentTab" :ref="currentTab.title" :key="currentTab.title" :title="currentTab.title"></comp>
+    <comp v-if="currentTab" :ref="currentTab.title" :key="currentTab.title" :title="currentTab.title">
+    </comp>
   </keep-alive>
   <button @click="currentTab={title: 'Test1'}">Test1</button>
   <button @click="currentTab={title: 'Test2'}">Test2</button>
@@ -20,7 +21,11 @@ export default {
 }
 </script>
 
-<!-- Remove this and see the difference -->
+
+Steps to reproduce
+1. Click on Test1 button and then click on Log Ref button. Check logs.
+2. Now click on Test2 button, then Test 1 button and then click on Log Ref button. Check logs.
+3. Do the same after removing the code below
 <script setup>
 let test;
 </script>
